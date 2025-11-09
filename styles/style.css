@@ -146,8 +146,32 @@ h2 {
   border-block-end: 2px solid var(--black);
 }
 
-.cards-list .card:nth-child(2) .cover-image {
+.chistiy-list {
   filter: grayscale(0.7);
+}
+
+.ne-poluchitsa {
+  filter: saturate(200%);
+}
+
+.pogonya {
+  filter: contrast(20%);
+}
+
+.kto-ryadom {
+  filter: hue-rotate(-90deg);
+}
+
+.obhodnye-strat {
+  filter: sepia(90%);
+}
+
+.opuskautsa-ruki {
+  filter: blur(2px);
+}
+
+.ya-zdes {
+  filter: brightness(200%);
 }
 
 .watermark {
