@@ -42,10 +42,12 @@
     --white: #fff;
     --black: #000;
     --green: #00CC14;
+    --red: #FF0000;
 
     --main-color: var(--black);
     --background: var(--white);
-
+    --heart-contour: var(--black);
+    --animation-fill-color: var(--red);
 
 
 }

@@ -4,7 +4,7 @@
   src:
     local("PressStart2P-Regular"),
     local("PressStart2P Regular"),
-    url(../fonts/PressStart2P-Regular.woff);
+    url('../fonts/PressStart2P-Regular.woff') format('woff');
 }
 
 @font-face {

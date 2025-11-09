@@ -4,27 +4,22 @@
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
-
 */
 
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
   padding: 100px var(--page-side-padding);
-
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--page-inner-gap);
-
   background-image: var(--page-bg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat, no-repeat, no-repeat;
-
   font-family: var(--font-inter), sans-serif;
   font-variation-settings: "wght" var(--body-font-weight), "wdth" 130, "opsz" 0;
   font-size: 18px;
@@ -37,6 +32,7 @@
 }
 
 .button {
+  block-size: 38px;
   border: 2px solid var(--main-color);
   padding: 10.5px 35px;
   color: var(--main-color);
@@ -45,7 +41,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: 90%;
-
   background: linear-gradient(
     90deg,
     var(--main-color) 0 50%,
@@ -53,7 +48,9 @@
   );
   background-size: 200% 100%;
   background-position: 100% 0%;
-  transition: color 500ms, background-position 500ms;
+  transition: color 0.5s ease-in-out, background-position 0.5s ease-in-out,
+    box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -62,7 +59,7 @@
 }
 
 .button:hover .floppy-icon {
-  --main-color: var(--white);
+  fill: var(--white);
 }
 
 .button:focus-visible {
@@ -70,12 +67,99 @@
   box-shadow: 2px 2px 0 0 var(--main-color);
 }
 
+.card__icon-button {
+  inline-size: 38px;
+  block-size: 38px;
+  padding: 0;
+  display: grid;
+  place-items: center;  
+  background-color: transparent;
+  border: 2px solid transparent;
+  cursor: pointer;
+  outline: none;
+  transition: border 0.3s ease;
+  overflow: visible;
+  position: relative;
+  z-index: 0;
+}
+
+.button:focus,
 .card__icon-button:focus {
   outline: none;
 }
 
 .card__icon-button:focus-visible {
-  outline: 2px solid var(--main-color);
+  border: 2px solid var(--main-color);
+}
+
+.contour {
+  transition: fill 0.1s linear;
+}
+
+.main-body {
+  transition: fill 0.3s linear;
+}
+
+.core {
+  transition: fill 0.3s 0.03s linear;
+}
+
+.sparks {
+  opacity: 0;
+}
+.heart {
+  transform-origin: center;
+}
+
+.like-icon {
+  display: block;
+  transform-origin: center;
+}
+
+.like-icon:hover {
+  .core {
+    fill: var(--main-color);
+    transition: fill 0.3s linear;
+  }
+  .main-body {
+    fill: var(--main-color);
+    transition: fill 0.3s linear;
+  }
+}
+
+.card__icon-button:active {
+  .core {
+    fill: var(--animation-fill-color);
+    transition: fill 0.3s 0.03s linear;
+  }
+  .main-body {
+    fill: var(--animation-fill-color);
+    transition: fill 0.3s 0.05s linear;
+  }
+}
+
+.card__like-button {
+  width: 160px;
+}
+
+.like-icon.is-liked {
+  .core {
+    fill: var(--animation-fill-color);
+  }
+  .main-body {
+    fill: var(--animation-fill-color);
+    transition: fill 0.05s linear;
+  }
+  .contour {
+    fill: var(--animation-fill-color);
+    transition: fill 0.3s linear;
+  }
+  .heart {
+    animation: heartbeat 0.3s 0.1s 1 ease-in;
+  }
+  .sparks {
+    animation: sparks 0.3s 0.3s 1 ease-in;
+  }
 }
 
 .header {
@@ -178,7 +262,7 @@ h2 {
   position: absolute;
   inset-block-start: 25px;
   inset-inline-end: 25px;
-  color: var(--mainColor);
+  color: var(--main-color);
   text-shadow: -1px 0 var(--background), 0 1px var(--background),
     1px 0 var(--background), 0 -1px var(--background);
   font-family: var(--font-press-start);
@@ -218,14 +302,6 @@ p {
   align-items: center;
 }
 
-.card__icon-button {
-  inline-size: 39px;
-  block-size: 36px;
-  padding-block-start: 6px;
-  background-color: transparent;
-  border: none;
-}
-
 .card__like-button {
   padding: 10.5px 35px;
 }
@@ -252,13 +328,11 @@ p {
   border: 2px solid var(--main-color);
   background: var(--background);
   color: var(--main-color);
-
   transform: translateY(-50px);
   opacity: 0;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* когда окно открыто */
 .dialog-save[open] {
   display: flex;
   flex-direction: column;
@@ -269,12 +343,10 @@ p {
   opacity: 1;
 }
 
-/* фон с блюром */
 .dialog-save::backdrop {
   backdrop-filter: brightness(25%);
 }
 
-/* контент модалки: иконка + текст */
 .dialog-content {
   display: flex;
   align-items: center;
@@ -296,7 +368,6 @@ p {
   color: currentColor;
 }
 
-/* кнопка OK */
 .dialog__ok-button {
   inline-size: 100%;
 }
