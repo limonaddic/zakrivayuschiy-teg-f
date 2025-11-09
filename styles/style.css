@@ -13,8 +13,8 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  padding: 100px var( --page-side-padding);
-  
+  padding: 100px var(--page-side-padding);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +26,7 @@
   background-repeat: no-repeat, no-repeat, no-repeat;
 
   font-family: var(--font-inter), sans-serif;
-  font-variation-settings: 'wght' var(--body-font-weight), 'wdth' 130, 'opsz' 0;
+  font-variation-settings: "wght" var(--body-font-weight), "wdth" 130, "opsz" 0;
   font-size: 18px;
   font-style: normal;
   line-height: 21px;
@@ -36,12 +36,53 @@
   inline-size: var(--content-width);
 }
 
+.button {
+  border: 2px solid var(--main-color);
+  padding: 10.5px 35px;
+  color: var(--main-color);
+  font-family: var(--font-press-start);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 90%;
+
+  background: linear-gradient(
+    90deg,
+    var(--main-color) 0 50%,
+    var(--background) 50% 100%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0%;
+  transition: color 500ms, background-position 500ms;
+}
+
+.button:hover {
+  color: var(--white);
+  background-position: 0% 0%;
+}
+
+.button:hover .floppy-icon {
+  --main-color: var(--white);
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: 2px 2px 0 0 var(--main-color);
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--main-color);
+}
+
 .header {
   padding: 122px 14px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  
   background-color: var(--background);
   color: var(--main-color);
   border: 2px solid var(--main-color);
@@ -95,7 +136,7 @@ h2 {
 }
 
 .image-container {
-  position: relative
+  position: relative;
 }
 
 .cover-image {
@@ -109,17 +150,13 @@ h2 {
   filter: grayscale(0.7);
 }
 
-
 .watermark {
   position: absolute;
   inset-block-start: 25px;
   inset-inline-end: 25px;
   color: var(--mainColor);
-  text-shadow:
-    -1px 0 var(--background), 
-    0 1px var(--background), 
-    1px 0 var(--background), 
-    0 -1px var(--background);
+  text-shadow: -1px 0 var(--background), 0 1px var(--background),
+    1px 0 var(--background), 0 -1px var(--background);
   font-family: var(--font-press-start);
   font-size: 14px;
   font-style: normal;
@@ -130,12 +167,12 @@ h2 {
   mix-blend-mode: hard-light;
 }
 
-@supports(-webkit-text-stroke: 1px var(--background)) {
+@supports (-webkit-text-stroke: 1px var(--background)) {
   .watermark {
     -webkit-text-stroke: 1px var(--background);
     text-shadow: none;
   }
-} 
+}
 
 .card-content {
   display: flex;
@@ -170,24 +207,78 @@ p {
 }
 
 .save-button {
+  inline-size: var(--save-button-width);
+  padding-inline-start: 18px;
+  padding-inline-end: 18px;
   display: flex;
-  flex-direction: column;
   gap: 8px;
-  padding: 15px 20px;
   align-items: center;
 }
 
 .floppy-icon {
   inline-size: var(--floppy-size);
   aspect-ratio: 1 / 1;
+  fill: var(--main-color);
+}
+
+.dialog-save {
+  inline-size: 341px;
+  max-inline-size: calc(100vw - 2rem);
+  padding: 30px var(--dialog-side-padding);
+  border: 2px solid var(--main-color);
+  background: var(--background);
+  color: var(--main-color);
+
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* когда окно открыто */
+.dialog-save[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* фон с блюром */
+.dialog-save::backdrop {
+  backdrop-filter: brightness(25%);
+}
+
+/* контент модалки: иконка + текст */
+.dialog-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
   color: var(--main-color);
 }
 
-@media (width >= 1440px) {
-  .save-button {
-    flex-direction: row;
-  }
+.dialog-icon {
+  inline-size: 39px;
+  block-size: 39px;
+  color: currentColor;
 }
 
+.dialog-text {
+  font-family: var(--font-press-start);
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: currentColor;
+}
 
+/* кнопка OK */
+.dialog__ok-button {
+  inline-size: 100%;
+}
 
+@media (width <= 375px) {
+  .save-button {
+    flex-direction: column;
+  }
+}

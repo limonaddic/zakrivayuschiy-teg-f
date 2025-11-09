@@ -74,7 +74,7 @@
                     <path d="M15 21H12V24H15V21Z" fill="black" />
                   </svg>
                 </button>
-                <button class="card__like-button">
+                <button class="button card__like-button">
                   <span class="button__text">Like</span>
                 </button>
               </div>
@@ -133,7 +133,7 @@
                     <path d="M15 21H12V24H15V21Z" fill="black" />
                   </svg>
                 </button>
-                <button class="card__like-button">
+                <button class="button card__like-button">
                   <span class="button__text">Like</span>
                 </button>
               </div>
@@ -190,7 +190,7 @@
                     <path d="M15 21H12V24H15V21Z" fill="black" />
                   </svg>
                 </button>
-                <button class="card__like-button">
+                <button class="button card__like-button">
                   <span class="button__text">Like</span>
                 </button>
               </div>
@@ -249,7 +249,7 @@
                     <path d="M15 21H12V24H15V21Z" fill="black" />
                   </svg>
                 </button>
-                <button class="card__like-button">
+                <button class="button card__like-button">
                   <span class="button__text">Like</span>
                 </button>
               </div>
@@ -309,7 +309,7 @@
                     <path d="M15 21H12V24H15V21Z" fill="black" />
                   </svg>
                 </button>
-                <button class="card__like-button">
+                <button class="button card__like-button">
                   <span class="button__text">Like</span>
                 </button>
               </div>
@@ -366,7 +366,7 @@
                     <path d="M15 21H12V24H15V21Z" fill="black" />
                   </svg>
                 </button>
-                <button class="card__like-button">
+                <button class="button card__like-button">
                   <span class="button__text">Like</span>
                 </button>
               </div>
@@ -425,7 +425,7 @@
                     <path d="M15 21H12V24H15V21Z" fill="black" />
                   </svg>
                 </button>
-                <button class="card__like-button">
+                <button class="button card__like-button">
                   <span class="button__text">Like</span>
                 </button>
               </div>
@@ -488,26 +488,39 @@
                     <path d="M15 21H12V24H15V21Z" fill="black" />
                   </svg>
                 </button>
-                <button class="card__like-button">
+                <button class="button card__like-button">
                   <span class="button__text">Like</span>
                 </button>
               </div>
             </div>
           </li>
         </ul>
-        <button class="save-button">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 28 28"
-          aria-hidden="true"
-          class="floppy-icon"
-        >
-          <use href="/svg/floppy.svg#floppy"></use>
-        </svg>
-        <span>Сохранить на память</span>
+        <button class="button save-button" onclick="dialog.showModal()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 28 28"
+            aria-hidden="true"
+            class="floppy-icon"
+          >
+            <use href="/svg/floppy.svg#floppy"></use>
+          </svg>
+          <span class="button__text">Сохранить на память</span>
       </button>
       </div>
     </main>
+
+    <dialog class="dialog-save" id="dialog">
+      <div class="dialog-content">
+        <svg viewBox="0 0 39 39" class="dialog-icon" aria-hidden="true">
+          <use href="./svg/floppy.svg#floppy"></use>
+        </svg>
+        <p class="dialog-text">Вставьте дискету, чтобы продолжить</p>
+      </div>
+      <button class="button dialog__ok-button" onclick="dialog.close()">
+        <span class="button__text">OK</span>
+      </button>
+    </dialog>
+
     <script src="./scripts/like.js"></script>
   </body>
 </html>
