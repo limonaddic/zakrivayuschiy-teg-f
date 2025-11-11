@@ -19,9 +19,9 @@
   background-image: var(--page-bg);
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed;
   font-family: var(--font-inter), sans-serif;
-  font-variation-settings: "wght" var(--body-font-weight), "wdth" 130, "opsz" 0;
+  font-variation-settings: "wght" var(--body-font-weight);
   font-size: 18px;
   font-style: normal;
   line-height: 21px;
@@ -123,14 +123,14 @@
   }
   .main-body {
     fill: var(--main-color);
-    transition: fill 0.3s linear;
+    transition: fill 0.3s 0.05s linear;
   }
 }
 
 .card__icon-button:active {
   .core {
     fill: var(--animation-fill-color);
-    transition: fill 0.3s 0.03s linear;
+    transition: fill 0.3s linear;
   }
   .main-body {
     fill: var(--animation-fill-color);
@@ -140,19 +140,21 @@
 
 .card__like-button {
   width: 160px;
+  padding: 10.5px 35px;
 }
 
 .like-icon.is-liked {
   .core {
     fill: var(--animation-fill-color);
+    transition: 0.3s 0.05s linear;
   }
   .main-body {
     fill: var(--animation-fill-color);
-    transition: fill 0.05s linear;
+    transition: fill 0.3s 0.05s linear;
   }
   .contour {
     fill: var(--animation-fill-color);
-    transition: fill 0.3s linear;
+    transition: fill 0.3s 0.06s linear;
   }
   .heart {
     animation: heartbeat 0.3s 0.1s 1 ease-in;
@@ -178,7 +180,7 @@
 }
 
 h1 {
-  font-size: var(--h1-font-size);
+  font-size: var(--main-heading-font-size);
   text-align: center;
 }
 
@@ -213,7 +215,7 @@ h1 {
 }
 
 h2 {
-  font-weight: var(--heading-font-weight);
+  font-variation-settings: 'wght' var(--heading-font-weight);
   font-size: 18px;
   font-style: normal;
   line-height: 120%;
@@ -226,36 +228,43 @@ h2 {
 .cover-image {
   inline-size: 100%;
   aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
   border-block-start: 2px solid var(--black);
   border-block-end: 2px solid var(--black);
 }
 
-.chistiy-list {
+.filter-grayscale {
   filter: grayscale(0.7);
 }
 
-.ne-poluchitsa {
+.filter-saturate {
   filter: saturate(200%);
 }
 
-.pogonya {
+.filter-contrast {
   filter: contrast(20%);
 }
 
-.kto-ryadom {
+.filter-hue-rotate {
   filter: hue-rotate(-90deg);
 }
 
-.obhodnye-strat {
+.filter-sepia {
   filter: sepia(90%);
 }
 
-.opuskautsa-ruki {
+.filter-blur {
   filter: blur(2px);
 }
 
-.ya-zdes {
+.filter-brightness {
   filter: brightness(200%);
+}
+
+.filter-brightness-sepia {
+  filter: brightness(150%);
+  filter: sepia(50%);
 }
 
 .watermark {
@@ -300,10 +309,6 @@ p {
   display: flex;
   gap: 6px;
   align-items: center;
-}
-
-.card__like-button {
-  padding: 10.5px 35px;
 }
 
 .save-button {
