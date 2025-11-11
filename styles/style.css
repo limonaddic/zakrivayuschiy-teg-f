@@ -32,7 +32,6 @@
 }
 
 .button {
-  block-size: 38px;
   border: 2px solid var(--main-color);
   padding: 10.5px 35px;
   color: var(--main-color);
@@ -72,7 +71,7 @@
   block-size: 38px;
   padding: 0;
   display: grid;
-  place-items: center;  
+  place-items: center;
   background-color: transparent;
   border: 2px solid transparent;
   cursor: pointer;
@@ -139,7 +138,6 @@
 }
 
 .card__like-button {
-  width: 160px;
   padding: 10.5px 35px;
 }
 
@@ -215,7 +213,7 @@ h1 {
 }
 
 h2 {
-  font-variation-settings: 'wght' var(--heading-font-weight);
+  font-variation-settings: "wght" var(--heading-font-weight);
   font-size: 18px;
   font-style: normal;
   line-height: 120%;
@@ -313,8 +311,7 @@ p {
 
 .save-button {
   inline-size: var(--save-button-width);
-  padding-inline-start: 18px;
-  padding-inline-end: 18px;
+  padding: 13px 18px 16px;
   display: flex;
   gap: 8px;
   align-items: center;
@@ -323,7 +320,7 @@ p {
 .floppy-icon {
   inline-size: var(--floppy-size);
   aspect-ratio: 1 / 1;
-  fill: var(--main-color);
+  fill: currentColor;
 }
 
 .dialog-save {
@@ -380,5 +377,11 @@ p {
 @media (width <= 375px) {
   .save-button {
     flex-direction: column;
+  }
+}
+
+@media (width > 375px) {
+  .header {
+    padding: 128px 14px;
   }
 }
