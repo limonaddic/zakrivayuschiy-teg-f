@@ -261,8 +261,7 @@ h2 {
 }
 
 .filter-brightness-sepia {
-  filter: brightness(150%);
-  filter: sepia(50%);
+  filter: brightness(150%) sepia(50%);
 }
 
 .watermark {
