@@ -34,31 +34,39 @@
 .button {
   border: 2px solid var(--main-color);
   padding: 10.5px 35px;
-  color: var(--main-color);
   font-family: var(--font-press-start);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 90%;
-  background: linear-gradient(
-    90deg,
-    var(--main-color) 0 50%,
-    var(--background) 50% 100%
-  );
-  background-size: 200% 100%;
-  background-position: 100% 0%;
-  transition: color 0.5s ease-in-out, background-position 0.5s ease-in-out,
-    box-shadow 0.3s ease;
   cursor: pointer;
-}
-
-.button:hover {
+  position: relative;
+  background-color: var(--white);
   color: var(--white);
-  background-position: 0% 0%;
 }
 
-.button:hover .floppy-icon {
-  fill: var(--white);
+.button__text {
+  mix-blend-mode: difference;
+  z-index: 2;
+  position: relative;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  block-size: 100%;
+  padding-top: 0;
+  padding-left: 0;
+  background-color: var(--main-color);
+  transition: width 0.5s ease-in-out;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.button:hover::after {
+  width: 100%;
 }
 
 .button:focus-visible {
@@ -113,6 +121,7 @@
 .like-icon {
   display: block;
   transform-origin: center;
+  padding-right: 5px;
 }
 
 .like-icon:hover {
@@ -279,6 +288,7 @@ h2 {
   text-transform: uppercase;
   opacity: 0.5;
   mix-blend-mode: hard-light;
+  z-index: 2;
 }
 
 @supports (-webkit-text-stroke: 1px var(--background)) {
@@ -314,12 +324,16 @@ p {
   display: flex;
   gap: 8px;
   align-items: center;
+  background-color: var(--background);
 }
 
 .floppy-icon {
   inline-size: var(--floppy-size);
   aspect-ratio: 1 / 1;
-  fill: currentColor;
+  fill: var(--white);
+  mix-blend-mode: difference;
+  z-index: 2;
+  position: relative;
 }
 
 .dialog-save {
