@@ -229,16 +229,23 @@ h2 {
 }
 
 .image-container {
+  inline-size: 100%;
+  aspect-ratio: 1 / 1;
   position: relative;
+  overflow: hidden;
+  border-block-start: 2px solid var(--black);
+  border-block-end: 2px solid var(--black);
 }
 
 .cover-image {
   inline-size: 100%;
-  aspect-ratio: 1 / 1;
+  /*aspect-ratio: 1 / 1;*/
   object-fit: cover;
   object-position: center;
-  border-block-start: 2px solid var(--black);
-  border-block-end: 2px solid var(--black);
+}
+
+.filter-low-brightness {
+  filter: brightness(75%);
 }
 
 .filter-grayscale {
@@ -246,27 +253,27 @@ h2 {
 }
 
 .filter-saturate {
-  filter: saturate(200%);
+  filter: saturate(75%);
 }
 
 .filter-contrast {
-  filter: contrast(20%);
+  filter: contrast(80%);
 }
 
 .filter-hue-rotate {
-  filter: hue-rotate(-90deg);
+  filter: hue-rotate(-100deg);
 }
 
 .filter-sepia {
-  filter: sepia(90%);
+  filter: sepia(40%);
 }
 
-.filter-blur {
-  filter: blur(2px);
+.filter-blur-grayscale {
+  filter: blur(4px) grayscale(0.5);
 }
 
 .filter-brightness {
-  filter: brightness(200%);
+  filter: brightness(90%);
 }
 
 .filter-brightness-sepia {
