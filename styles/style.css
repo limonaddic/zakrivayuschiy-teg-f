@@ -148,6 +148,7 @@
 
 .card__like-button {
   padding: 10.5px 35px;
+  width: 160px;
 }
 
 .like-icon.is-liked {
@@ -239,7 +240,6 @@ h2 {
 
 .cover-image {
   inline-size: 100%;
-  /*aspect-ratio: 1 / 1;*/
   object-fit: cover;
   object-position: center;
 }
@@ -269,7 +269,7 @@ h2 {
 }
 
 .filter-blur-grayscale {
-  filter: blur(4px) grayscale(0.5);
+  filter: blur(8px) grayscale(0.5);
 }
 
 .filter-brightness {
@@ -298,8 +298,44 @@ h2 {
   z-index: 2;
 }
 
+.warning-block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  inline-size: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.eye {
+  inline-size: 40px;
+  aspect-ratio: 1/1;
+}
+
+.warning-text {
+  display: block;
+  inline-size: 90%;
+  text-wrap: wrap;
+  color: var(--main-color);
+  text-shadow: -1px 0 var(--background), 0 1px var(--background),
+    1px 0 var(--background), 0 -1px var(--background);
+  font-family: var(--font-press-start);
+  font-size: clamp(0.875rem, 0.787rem + 0.3756vw, 1.125rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  text-align: center;
+}
+
 @supports (-webkit-text-stroke: 1px var(--background)) {
-  .watermark {
+  .watermark,
+  .warning-text {
     -webkit-text-stroke: 1px var(--background);
     text-shadow: none;
   }
