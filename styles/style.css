@@ -326,7 +326,7 @@ h2 {
   font-size: clamp(0.875rem, 0.787rem + 0.3756vw, 1.125rem);
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 142.857%;
   text-transform: uppercase;
   opacity: 0.5;
   mix-blend-mode: hard-light;
